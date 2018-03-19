@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+<form name="registration" onsubmit="return fregistration()">
+	<table>
+		<tr>
+			<td>
+				<label>Username</label>
+			</td>
+			<td>
+				<input type="text" name="Uname">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label>Password</label>
+			</td>
+			<td>
+				<input type="password" name="Upass" >
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="submit" name="submit">
+			</td>
+		</tr>
+	</table>
+</form>
+<script type="text/javascript">
+	function fregistration(){
+	var upassword = document.registration.Upass;
+	var username = document.registration.Uname;
+	var uname_len = username.value.length;
+	var upass_len = upassword.value.length;
+	var letters = /^[A-Za-z]+$/;
+	if(upassword.value.match(letters)){
+	try{
+		
+		if(upass_len == 0 || upass_len < 4) throw "password must be greater than 4 characters"; //message : "Password is weak";
+			
+		
+		else if(upass_len == 4 || upass_len < 7) throw  "password must be greater then 7 characters"; //message : "password is moderate";
+			
+		
+
+		
+		else throw ""; //message : "password is strong";
+		}
+		
+		catch(e){
+		alert("Error is:"+e);//+"and"+e.message);
+	}
+	finally{
+		document.write("You have successfully registered");
+	}
+}
+
+	
+	else{
+	alert("Invalid input");
+}
+
+}
+</script>
+
+</body>
+</html>
